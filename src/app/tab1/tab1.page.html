@@ -1,0 +1,64 @@
+<div class="center">
+  <ion-card
+    class="ion-activatable ripple-parent"
+    style="background: #00c4cc; color: white"
+    (click)="about()"
+  >
+    <div class="right">
+      <ion-icon style="font-size: 30px" name="help-circle"></ion-icon>
+    </div>
+    <ion-card-header style="color: #08595e">
+      <ion-card-subtitle style="color: #08595e">{{greet}},</ion-card-subtitle>
+      <ion-card-title style="color: #08595e">{{username}}</ion-card-title>
+      <!-- <small>{{address}}</small> -->
+    </ion-card-header>
+
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-card>
+</div>
+
+<ion-content>
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <ion-grid>
+          <ion-row>
+            <ion-card color="primary" class="card1">
+              <ion-card-header>
+                <img
+                  src="../../assets/icon/detailsnblooms.png"
+                  style="width: 60%; position: absolute; margin-left: 50%"
+                />
+                <ion-card-subtitle>DETAILS & BLOOMS</ion-card-subtitle>
+                <ion-card-title>System Benefeciary</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Details & Blooms Events and Flowers provides assistance to event
+                needs and cater to flower arrangements and styling requirements
+                for all occasions.
+              </ion-card-content>
+            </ion-card>
+          </ion-row>
+          <ion-row>
+            <ion-card color="primary" class="card1">
+              <ion-card-header>
+                <img
+                  src="../../assets/icon/detailsnblooms.png"
+                  style="width: 60%; position: absolute; margin-left: 50%"
+                />
+                <ion-card-subtitle>DETAILS & BLOOMS</ion-card-subtitle>
+                <ion-card-title>Physical Store Details</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Details & Blooms can be found within Harbor Point Mall at the
+                Ground Flr. (near the Activity Center), Subic Bay Freeport Zone
+                or contact us at
+                <b>0915-424-0028</b>.
+              </ion-card-content>
+            </ion-card>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

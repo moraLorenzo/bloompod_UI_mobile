@@ -1,0 +1,71 @@
+<!-- <div class="center" style="width: 100%">
+  <ion-card class="ion-activatable ripple-parent" style="background: #00c4cc">
+    <ion-card-header>
+      <ion-toolbar color="#c5b4e3">
+        <ion-buttons slot="start" style="margin-left: 1%">
+          <ion-icon
+            name="arrow-back-outline"
+            style="color: #08595e"
+            (click)="back()"
+          ></ion-icon>
+        </ion-buttons>
+
+        <ion-title style="color: #08595e">
+          Please Fill Floral Details
+        </ion-title>
+      </ion-toolbar>
+    </ion-card-header>
+
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-card>
+</div> -->
+<ion-card-header>
+  <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+</ion-card-header>
+<ion-content>
+  <div class="header">
+    <h1>Flowers</h1>
+  </div>
+
+  <!-- <ion-searchbar></ion-searchbar> -->
+
+  <div class="container">
+    <select
+      id="selectInput"
+      class="select"
+      aria-label="Determine Flower Quantity"
+      (change)="onChange($event.target.value)"
+    >
+      <option value="" selected>Flower Quantity</option>
+      <option value="6">Six (6)</option>
+      <option value="9">Nine (9)</option>
+      <option value="12">Twelve (12)</option>
+    </select>
+  </div>
+
+  <h1 class="list-header"></h1>
+
+  <div class="food-list">
+    <div class="card-noline" *ngFor="let flower of Flowers;let i = index;">
+      <img
+        style="border-radius: 50%"
+        src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/flowers/{{flower.flower_name}}.png"
+      />
+      <div class="card-content">
+        <h3 class="title">
+          {{flower.flower_name | replaceUnderscore | titlecase}}
+        </h3>
+        <h2 class="subtitle">
+          <sup>₱</sup>{{flower.flower_price | number:'1.2'}}
+        </h2>
+        <ion-buttons>
+          <ion-button
+            (click)="generate(flower.flower_name, flower.flower_price)"
+          >
+            <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </div>
+</ion-content>

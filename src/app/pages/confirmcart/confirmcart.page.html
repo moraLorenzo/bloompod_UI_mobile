@@ -1,0 +1,80 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>Purchases</ion-title>
+    <ion-router-link
+      (click)="back()"
+      slot="end"
+      class="underline"
+      style="margin: 10px"
+      >Back</ion-router-link
+    >
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-card-header>
+    <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+  </ion-card-header>
+
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div>
+          <ion-slides pager="false" [options]="slideOpts">
+            <ion-slide id="foo">
+              <ion-card style="width: 330px">
+                <ion-card-header> </ion-card-header>
+
+                <ion-card-content>
+                  <div [innerHtml]="content"></div>
+                  <img *ngIf="show" [src]="link" />
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+        </div>
+        <ion-grid>
+          <ion-row class="p-3">
+            <ion-col>
+              <ion-text>
+                <h6>{{order_flower | titlecase}}</h6>
+                <h6>₱ {{total | number:'1.2-2'}}</h6>
+              </ion-text></ion-col
+            >
+
+            <ion-col>
+              <!-- <ion-button
+                (click)="cancel()"
+                style="float: right"
+                color="danger"
+                clear
+              >
+                <ion-icon
+                  name="alert-circle-outline"
+                  style="padding-left: 15px"
+                ></ion-icon
+              ></ion-button> -->
+
+              <button
+                type="button"
+                (click)="cancel()"
+                class="btn btn-outline-danger"
+                style="float: right"
+              >
+                <ion-icon name="alert-circle-outline" color="danger"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+          <!-- <ion-row class="p-3">
+            <ion-text>
+              <span>{{bouquet_description}}</span>
+            </ion-text>
+          </ion-row> -->
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border myColor" color="primary">
+  <h6 (click)="mode()" style="padding-left: 15px">Checkout</h6>
+</ion-footer>

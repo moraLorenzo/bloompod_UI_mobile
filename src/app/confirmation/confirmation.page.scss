@@ -1,0 +1,24 @@
+.container {
+  padding: 0%;
+  margin: 0%;
+  width: 95%;
+}
+.center {
+  margin: auto;
+}
+ion-icon {
+  font-size: 22px;
+}
+.myColor {
+  background-color: #00c4cc;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+ion-button {
+  --background: #00c4cc;
+}
+* {
+  color: #08595e;
+}

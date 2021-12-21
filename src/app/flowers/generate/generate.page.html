@@ -1,0 +1,244 @@
+<!-- <div class="center" style="width: 100%">
+  <ion-card class="ion-activatable ripple-parent" style="background: #00c4cc">
+    <ion-card-header style="background: #00c4cc">
+      <ion-toolbar color="#c5b4e3">
+        <ion-buttons slot="start" style="margin-left: 1%">
+          <ion-icon
+            name="arrow-back-outline"
+            style="color: #08595e"
+            (click)="back()"
+          ></ion-icon>
+        </ion-buttons>
+
+        <ion-title style="color: #08595e">
+          Please Fill Floral Details
+        </ion-title>
+      </ion-toolbar>
+    </ion-card-header>
+
+    <ion-ripple-effect></ion-ripple-effect>
+  </ion-card>
+</div>
+
+<ion-content>
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div>
+          <ion-slides pager="false" [options]="slideOpts">
+            <ion-slide id="foo">
+              <ion-card style="width: 330px">
+                <ion-card-header> </ion-card-header>
+
+                <ion-card-content>
+                  <div [innerHtml]="content"></div>
+                </ion-card-content>
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+        </div>
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col">
+              <ion-button expand="block" (click)="confirm()"
+                >Confirm</ion-button
+              >
+            </div>
+            <div class="col">
+              <ion-button expand="block" (click)="gen()">Generate</ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content> -->
+
+<!-- <ion-content>
+  <ion-card-header>
+    <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+  </ion-card-header>
+
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div>
+          <ion-slides pager="false" [options]="slideOpts">
+            <ion-slide id="foo">
+              <ion-card style="width: 330px">
+                <ion-card-header><img [src]="link" alt="" /> </ion-card-header>
+
+                <ion-card-content> </ion-card-content>
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+        </div>
+
+        <ion-grid>
+          <ion-row class="p-3">
+            <ion-col>
+              <ion-text>
+                <h6>{{bouquet_name | titlecase}}</h6>
+                <h6>₱ {{total | number:'1.2-2'}}</h6>
+              </ion-text></ion-col
+            >
+
+            <ion-col>
+              <ion-button (click)="add_to_cart()"
+                >Cart
+                <ion-icon
+                  name="cart-outline"
+                  style="padding-left: 15px"
+                ></ion-icon
+              ></ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row class="p-3">
+            <ion-text>
+              <span>{{bouquet_description}}</span>
+            </ion-text>
+          </ion-row>
+
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border myColor" color="#00c4cc;">
+  <h6 (click)="mode()" style="padding-left: 15px">Checkout</h6>
+</ion-footer> -->
+
+<ion-content>
+  <div class="header">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/custom">
+        <ion-icon slot="icon-only" color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="add_to_cart()">
+        <ion-icon slot="icon-only" color="light" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <div class="card-noline">
+    <div class="image">
+      <!-- <img [src]="link" style="border-radius: 50%" /> -->
+
+      <div [innerHtml]="content"></div>
+    </div>
+
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin">Generated Flower Bouquet</h1>
+        <div class="rates">
+          <div class="badge" style="margin: auto" (click)="gen()">
+            <ion-icon name="brush-outline"></ion-icon> Generate
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about" *ngIf="option == 6">
+      <h1>Details</h1>
+      <div class="side-by-side">
+        <p>
+          Primary - {{primary}} (3 x <sup>₱</sup>{{primary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{primary_price * 3| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p>
+          Secondary - {{secondary}} (3 x <sup>₱</sup>{{secondary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{secondary_price * 3| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p class="others">Others:</p>
+        <p class="others"><sup>₱</sup>350.00</p>
+      </div>
+      <hr />
+      <div class="side-by-side">
+        <p><b>Total</b></p>
+        <p>
+          <b><sup>₱</sup>{{total| number:'1.2'}}</b>
+        </p>
+      </div>
+      <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
+    </div>
+
+    <div class="about" *ngIf="option == 9">
+      <h1>Details</h1>
+      <div class="side-by-side">
+        <p>
+          Primary - {{primary}} (3 x <sup>₱</sup>{{primary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{primary_price * 3| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p>
+          Secondary - {{secondary}} (6 x <sup>₱</sup>{{secondary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{secondary_price * 6| number:'1.2'}}</p>
+      </div>
+
+      <div class="side-by-side">
+        <p class="others">Others:</p>
+        <p class="others"><sup>₱</sup>350.00</p>
+      </div>
+      <hr />
+      <div class="side-by-side">
+        <p><b>Total</b></p>
+        <p>
+          <b><sup>₱</sup>{{total| number:'1.2'}}</b>
+        </p>
+      </div>
+
+      <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
+    </div>
+
+    <div class="about" *ngIf="option == 12">
+      <h1>Details</h1>
+      <div class="side-by-side">
+        <p>
+          Primary - {{primary}} (4 x <sup>₱</sup>{{primary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{primary_price * 4| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p>
+          Secondary - {{secondary}} (4 x <sup>₱</sup>{{secondary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{secondary_price * 4| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p>
+          Tertiary - {{tertiary}} (4 x <sup>₱</sup>{{tertiary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{tertiary_price * 4| number:'1.2'}}</p>
+      </div>
+
+      <div class="side-by-side">
+        <p class="others">Others:</p>
+        <p class="others"><sup>₱</sup>350.00</p>
+      </div>
+      <hr />
+      <div class="side-by-side">
+        <p><b>Total</b></p>
+        <p>
+          <b><sup>₱</sup>{{total| number:'1.2'}}</b>
+        </p>
+      </div>
+
+      <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
+    </div>
+  </div>
+</ion-content>

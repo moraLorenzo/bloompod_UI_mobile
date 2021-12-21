@@ -1,0 +1,69 @@
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.center {
+  // margin: auto;
+  // border: 3px solid green;
+  // padding: 10px;
+  font-family: "Inter";
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  //   width: 400px;
+  /* Whatever width you want */
+}
+
+ion-icon {
+  --ion-margin-left: auto;
+  --ion-margin-right: auto;
+  text-align: center;
+}
+
+ion-card {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bg {
+  --background: #49d443;
+}
+
+.t1 {
+  background: -webkit-linear-gradient(
+    307.03deg,
+    #44dcb6 17.31%,
+    #49d443 70.52%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ion-card {
+  background: #44dcb6 !important;
+}
+
+* {
+  color: #08595e;
+}
+ion-avatar {
+  margin-right: 25px;
+}

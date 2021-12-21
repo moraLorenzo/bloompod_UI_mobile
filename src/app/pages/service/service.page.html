@@ -1,0 +1,93 @@
+<ion-content>
+  <ion-card-header>
+    <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+  </ion-card-header>
+
+  <div *ngIf="show">
+    <ion-card class="ion-activatable ripple-parent">
+      <ion-card-header>
+        <ion-card-subtitle>No order is under service</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+  <div *ngIf="!show">
+    <div *ngFor="let order of orders">
+      <ion-list>
+        <ion-card
+          class="ion-activatable ripple-parent"
+          (click)="navHistory(order)"
+        >
+          <ion-item>
+            <ion-icon
+              name="flower-outline"
+              slot="start"
+              *ngIf="order.order_flower == 'Generated Flower Bouquet'"
+              size="large"
+            ></ion-icon>
+            <ion-avatar
+              *ngIf="order.order_flower != 'Generated Flower Bouquet'"
+            >
+              <img
+                src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{order.order_flower}}.jpg"
+                alt=""
+            /></ion-avatar>
+            <ion-label>
+              <ion-card-subtitle>{{order.order_flower}}</ion-card-subtitle>
+
+              <ion-card-title
+                >₱ {{order.order_totalprice | number:'1.2-2'}}</ion-card-title
+              >
+            </ion-label>
+          </ion-item>
+          <ion-card-content class="ion-text-left">
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-label>
+                    <p>Mode:</p>
+                    <h5>
+                      <b class="t1">{{order.order_payment}}</b>
+                    </h5>
+                  </ion-label>
+                </ion-col>
+
+                <ion-col>
+                  <ion-label>
+                    <p>Status:</p>
+                    <h5>
+                      <b class="t1">{{order.order_status}}</b>
+                    </h5>
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-label>
+                    <p>Date and Time:</p>
+                    <h5>
+                      <b class="t1"
+                        >{{order.order_date | date}} at {{order.order_time}}</b
+                      >
+                    </h5>
+                  </ion-label>
+                </ion-col>
+
+                <ion-col>
+                  <ion-label>
+                    <p>For:</p>
+                    <h5>
+                      <b *ngIf="order.order_recipient" class="t1"
+                        >{{order.order_recipient}}</b
+                      >
+                      <b *ngIf="!order.order_recipient" class="t1">Myself</b>
+                    </h5>
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

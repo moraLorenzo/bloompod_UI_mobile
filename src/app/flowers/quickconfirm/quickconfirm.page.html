@@ -1,0 +1,90 @@
+<!-- <ion-content>
+  <ion-card-header>
+    <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+  </ion-card-header>
+
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div>
+          <ion-slides pager="false" [options]="slideOpts">
+            <ion-slide id="foo">
+              <ion-card style="width: 330px">
+                <ion-card-header><img [src]="link" alt="" /> </ion-card-header>
+
+                <ion-card-content> </ion-card-content>
+              </ion-card>
+            </ion-slide>
+          </ion-slides>
+        </div>
+
+        <ion-grid>
+          <ion-row class="p-3">
+            <ion-col>
+              <ion-text>
+                <h6>{{bouquet_name | titlecase}}</h6>
+                <h6>₱ {{total | number:'1.2-2'}}</h6>
+              </ion-text></ion-col
+            >
+
+            <ion-col>
+              <ion-button (click)="add_to_cart()"
+                >Cart
+                <ion-icon
+                  name="cart-outline"
+                  style="padding-left: 15px"
+                ></ion-icon
+              ></ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row class="p-3">
+            <ion-text>
+              <span>{{bouquet_description}}</span>
+            </ion-text>
+          </ion-row>
+
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border myColor" color="#00c4cc;">
+  <h6 (click)="mode()" style="padding-left: 15px">Checkout</h6>
+</ion-footer> -->
+
+<ion-content>
+  <div class="header">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/quick">
+        <ion-icon slot="icon-only" color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button (click)="add_to_cart()">
+        <ion-icon slot="icon-only" color="light" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <div class="card-noline">
+    <div class="image">
+      <img [src]="link" style="border-radius: 50%" />
+    </div>
+
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin">{{bouquet_name | titlecase}}</h1>
+        <p clas="ion-no-margin"><sup>₱</sup>{{total | number:'1.2-2'}}</p>
+      </div>
+    </div>
+
+    <div class="about">
+      <h1>Details</h1>
+      <p>{{bouquet_description}}</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
+</ion-footer>

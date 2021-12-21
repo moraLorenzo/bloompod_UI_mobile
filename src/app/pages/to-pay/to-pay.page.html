@@ -1,0 +1,85 @@
+<ion-content>
+  <ion-card-header>
+    <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+  </ion-card-header>
+
+  <ion-card
+    class="ion-activatable ripple-parent ion-card-green"
+    style="background: #62c4ab"
+  >
+    <ion-card-header>
+      <ion-card-subtitle style="color: white"
+        >You can send the payments on any of these Accounts:</ion-card-subtitle
+      >
+    </ion-card-header>
+
+    <ion-card-content>
+      <h5 style="color: white">
+        Gcash: Details & Blooms <b class="t1">(0912 123 xxxx)</b>
+      </h5>
+      <h5 style="color: white">
+        BDO: <b class="t1">Details & Blooms xxxx xxxxx xxxxxxx</b>
+      </h5>
+    </ion-card-content>
+  </ion-card>
+  <div *ngIf="show">
+    <ion-card class="ion-activatable ripple-parent">
+      <ion-card-header>
+        <ion-card-subtitle
+          >There are no orders that need to be paid yet.</ion-card-subtitle
+        >
+      </ion-card-header>
+    </ion-card>
+  </div>
+  <div *ngIf="!show">
+    <div *ngFor="let order of orders; index as i">
+      <ion-list *ngIf="order.order_status == 'toPay'">
+        <ion-card
+          class="ion-activatable ripple-parent ion-card-green"
+          style="background: #62c4ab; color: white"
+        >
+          <ion-item lines="none">
+            <!-- <ion-icon
+              name="flower-outline"
+              slot="start"
+              size="large"
+            ></ion-icon> -->
+            <ion-label>
+              <ion-grid>
+                <ion-row>
+                  <ion-col (click)="open_confirmation(order)">
+                    <ion-text>
+                      <ion-card-subtitle
+                        >{{order.order_flower}}</ion-card-subtitle
+                      >
+                      <ion-card-subtitle
+                        >{{order.order_date | date}}</ion-card-subtitle
+                      >
+
+                      <ion-card-title
+                        >₱ {{order.order_totalprice |
+                        number:'1.2-2'}}</ion-card-title
+                      >
+                      <!-- <ion-button (click)="getGallery(order.order_id)"
+                >Payment</ion-button
+              > -->
+                    </ion-text></ion-col
+                  >
+
+                  <ion-col>
+                    <ion-button
+                      color="danger"
+                      style="float: right"
+                      (click)="cancel(i,order)"
+                      >Cancel</ion-button
+                    >
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

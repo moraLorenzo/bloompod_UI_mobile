@@ -1,0 +1,16 @@
+ion-icon {
+  font-size: 22px;
+}
+
+.form-group.required .control-label:after {
+  content: " *";
+  color: red;
+}
+
+* {
+  color: #08595e;
+}
+
+ion-button {
+  --background: #00c4cc;
+}

@@ -1,0 +1,79 @@
+.ripple-parent {
+  position: relative;
+  overflow: hidden;
+}
+.center {
+  // margin: auto;
+  // border: 3px solid green;
+  // padding: 10px;
+  font-family: "Inter";
+}
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  //   width: 400px;
+  /* Whatever width you want */
+}
+
+ion-avatar {
+  margin: auto;
+}
+
+ion-card {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top {
+  margin-top: 5%;
+}
+
+.card1 {
+  border-radius: 25px;
+
+  background: #49d443;
+}
+
+ion-card-subtitle,
+ion-card-title,
+ion-card-content {
+  color: #08595e !important;
+}
+
+h1 {
+  margin-left: 5%;
+}
+.right {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+
+.img-container {
+  text-align: center;
+}
+
+// .t1 {
+//   background: -webkit-linear-gradient(
+//     307.03deg,
+//     #44dcb6 17.31%,
+//     #49d443 70.52%
+//   );
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }

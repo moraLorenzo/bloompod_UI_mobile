@@ -1,0 +1,47 @@
+<ion-card-header>
+  <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+</ion-card-header>
+<ion-content>
+  <div class="header">
+    <h1>Bouquets</h1>
+  </div>
+
+  <!-- <ion-searchbar></ion-searchbar> -->
+
+  <div class="container">
+    <select
+      id="selectInput"
+      class="select"
+      (change)="onChange($event.target.value)"
+      aria-label="Default select example"
+    >
+      <option selected>Price Range</option>
+      <option value="1">0-300</option>
+      <option value="2">300-600</option>
+      <option value="3">600-800</option>
+      <option value="4">800-Above</option>
+    </select>
+  </div>
+
+  <h1 class="list-header"></h1>
+
+  <div class="food-list">
+    <div class="card-noline" *ngFor="let flower of Flowers;let i = index;">
+      <img
+        style="border-radius: 50%"
+        src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{flower.quick_name}}.jpg"
+      />
+      <div class="card-content">
+        <h3 class="title">{{flower.quick_name | titlecase}}</h3>
+        <h2 class="subtitle">
+          <sup>₱</sup>{{flower.quick_price | number:'1.2'}}
+        </h2>
+        <ion-buttons>
+          <ion-button (click)="confirm(flower)">
+            <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </div>
+  </div>
+</ion-content>

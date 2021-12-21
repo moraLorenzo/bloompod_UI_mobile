@@ -1,0 +1,113 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@font-face {
+  font-family: "Inter"; //This is what we are going to call
+  src: url("../src/assets/fonts/Inter-Regular.ttf");
+}
+@font-face {
+  font-family: "Inter-Semi"; //This is what we are going to call
+  src: url("../src/assets/fonts/Inter-SemiBold.ttf");
+}
+
+.my-custom-class {
+  --background: #00c4cc;
+  font-family: "AppFont";
+  font-size: 5vw;
+  color: white !important;
+  p {
+    text-align: center;
+  }
+  button.alert-button {
+    color: white;
+  }
+  message {
+    color: white;
+  }
+}
+
+.my-custom-class2 {
+  .popover-content {
+    width: 90%;
+  }
+}
+
+.my-custom-class {
+  --background: #00c4cc;
+  font-family: "AppFont";
+  font-size: 5vw;
+  color: white !important;
+  p {
+    text-align: center;
+  }
+  button.alert-button {
+    color: white;
+  }
+  .alert-wrapper {
+    .alert-head {
+      // header styling here eg. background
+      color: white;
+      h2 {
+        color: white; // header text styling here eg. color, font size
+      }
+    }
+    .alert-message {
+      color: white;
+    }
+  }
+}
+
+.my-custom-class-login {
+  background-color: #44dcb6;
+  --background: #00c4cc;
+
+  color: white;
+  font-family: "AppFont";
+  font-size: 5vw;
+  color: white;
+  p {
+    text-align: center;
+  }
+  ion-img {
+    margin: auto;
+    width: 50%;
+  }
+}
+
+.rotate {
+  animation: rotation 2s infinite linear;
+  margin: auto;
+  width: 60%;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
