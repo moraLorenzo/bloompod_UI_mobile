@@ -18,7 +18,7 @@
 </div>
 
 <ion-content>
-  <div class="outer">
+  <!-- <div class="outer">
     <div class="middle">
       <div class="inner">
         <ion-grid>
@@ -59,6 +59,59 @@
           </ion-row>
         </ion-grid>
       </div>
+    </div>
+  </div> -->
+
+  <div class="mt-2 mb-2" style="position: relative">
+    <div
+      style="
+        color: rgb(2, 34, 12);
+        background-color: none;
+        text-align: center;
+
+        text-align: justify;
+      "
+    >
+      <h3 class="mb-5" id="line-style" style="text-align: center">
+        <span>Available Flowers</span>
+      </h3>
+      <div style="text-align: center; margin: 0; padding: 0">
+        <ng-image-slider
+          #nav
+          [images]="order_flowers"
+          [infinite]="true"
+          [autoSlide]=".5"
+          slideImage=".5"
+        ></ng-image-slider>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="mt-2 mb-2"
+    style="
+      color: rgb(2, 34, 12);
+      background-color: none;
+      text-align: center;
+      text-align: justify;
+    "
+  >
+    <h3 class="mb-5" id="line-style" style="text-align: center">
+      <span>Florists Choice</span>
+    </h3>
+    <div style="text-align: center; margin: 0; padding: 0">
+      <ng-image-slider
+        #nav
+        style="cursor: pointer"
+        [images]="orders"
+        [infinite]="true"
+        [autoSlide]=".5"
+        slideImage=".5"
+        [animationSpeed]="2"
+        [manageImageRatio]="true"
+        [imagePopup]="false"
+        (imageClick)="bouquet_click($event)"
+      ></ng-image-slider>
     </div>
   </div>
 </ion-content>

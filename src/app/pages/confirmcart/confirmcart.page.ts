@@ -25,6 +25,13 @@ export class ConfirmcartPage implements OnInit {
   link: any;
   order_flower: any;
 
+  Flowers: any;
+  floral: any;
+  cpt = 0;
+  secondary_price: any;
+  tertiary_price: any;
+  primary_price: any;
+
   show = false;
   constructor(
     private fs: FlowersService,
@@ -48,13 +55,38 @@ export class ConfirmcartPage implements OnInit {
       this.orders.order_flower == 'Generated Bouquet'
     ) {
       this.show = false;
+      console.log('automator');
+
+      this.dataService
+        .processData(btoa('get_flowers').replace('=', ''), null, 2)
+        .subscribe(
+          (dt: any) => {
+            let load = this.dataService.decrypt(dt.a);
+            console.log(load);
+
+            // for (let i = 0; i < this.Flowers.length; i++) {
+
+            //   this.floral.push(this.Flowers[i]['flower_name']);
+            // }
+
+            this.Flowers = load.payload.data;
+            this.proceed();
+          },
+          (er) => {
+            console.log('Invalid Inputs', er);
+          }
+        );
     } else {
       this.show = true;
       this.link =
         'http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/' +
         this.orders.order_flower +
         '.jpg';
+      console.log('not automator');
     }
+  }
+
+  proceed() {
     this.flowername = this.orders.order_flower;
     this.primary = this.orders.main_flower;
     this.secondary = this.orders.secondary_flower;
@@ -65,9 +97,48 @@ export class ConfirmcartPage implements OnInit {
 
     if (this.quantity == 6) {
       this.content = this.fs.six(this.primary, this.secondary);
+      this.Flowers.forEach((element) => {
+        console.log(element);
+
+        if (this.primary == element.flower_name) {
+          this.primary_price = element.flower_price;
+        }
+
+        if (this.secondary == element.flower_name) {
+          this.secondary_price = element.flower_price;
+        }
+      });
     } else if (this.quantity == 9) {
+      this.Flowers.forEach((element) => {
+        console.log(element);
+
+        if (this.primary == element.flower_name) {
+          this.primary_price = element.flower_price;
+        }
+
+        if (this.secondary == element.flower_name) {
+          this.secondary_price = element.flower_price;
+        }
+      });
       this.content = this.fs.nine(this.primary, this.secondary);
     } else if (this.quantity == 12) {
+      console.log(this.Flowers);
+      this.Flowers.forEach((element) => {
+        console.log(element);
+
+        if (this.primary == element.flower_name) {
+          this.primary_price = element.flower_price;
+        }
+
+        if (this.secondary == element.flower_name) {
+          this.secondary_price = element.flower_price;
+        }
+
+        if (this.tertiary == element.flower_name) {
+          this.tertiary_price = element.flower_price;
+        }
+      });
+
       this.content = this.fs.twelve(this.primary, [
         this.secondary,
         this.tertiary,

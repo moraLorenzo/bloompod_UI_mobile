@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgOtpInputModule } from 'ng-otp-input';
 // import { ModalController } from '@ionic/angular';
 
+import { NgImageSliderModule } from 'ng-image-slider';
+
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
+    NgImageSliderModule,
     BrowserAnimationsModule,
     NgOtpInputModule,
     // ModalController

@@ -1,15 +1,4 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>Purchases</ion-title>
-    <ion-router-link
-      (click)="back()"
-      slot="end"
-      class="underline"
-      style="margin: 10px"
-      >Back</ion-router-link
-    >
-  </ion-toolbar>
-</ion-header> -->
+<!-- 
 
 <ion-content>
   <ion-card-header>
@@ -43,17 +32,7 @@
             >
 
             <ion-col>
-              <!-- <ion-button
-                (click)="cancel()"
-                style="float: right"
-                color="danger"
-                clear
-              >
-                <ion-icon
-                  name="alert-circle-outline"
-                  style="padding-left: 15px"
-                ></ion-icon
-              ></ion-button> -->
+
 
               <button
                 type="button"
@@ -65,11 +44,6 @@
               </button>
             </ion-col>
           </ion-row>
-          <!-- <ion-row class="p-3">
-            <ion-text>
-              <span>{{bouquet_description}}</span>
-            </ion-text>
-          </ion-row> -->
         </ion-grid>
       </div>
     </div>
@@ -77,4 +51,155 @@
 </ion-content>
 <ion-footer class="ion-no-border myColor" color="primary">
   <h6 (click)="mode()" style="padding-left: 15px">Checkout</h6>
-</ion-footer>
+</ion-footer> -->
+
+<ion-content>
+  <div class="header">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab4">
+        <ion-icon slot="icon-only" color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div>
+
+  <div class="card-noline">
+    <div class="image">
+      <!-- <img [src]="link" style="border-radius: 50%" /> -->
+
+      <div [innerHtml]="content"></div>
+    </div>
+
+    <div *ngIf="show" class="image-inner">
+      <!-- <img [src]="link" style="border-radius: 50%" /> -->
+      <img
+        class="image-inner"
+        [src]="link"
+        style="
+          border-radius: 50%;
+          position: absolute;
+          top: -6.5rem;
+          width: 50%;
+          left: 25%;
+        "
+      />
+    </div>
+
+    <div class="card-content">
+      <div class="card-title">
+        <h1 class="ion-no-margin">{{order_flower | titlecase}}</h1>
+        <p clas="ion-no-margin"><sup>₱</sup>{{total | number:'1.2-2'}}</p>
+      </div>
+    </div>
+
+    <div class="about" *ngIf="show">
+      <h1>Details</h1>
+      <p>
+        An Artistic Bouquet Containing Assorted Flowers, which represents of
+        being optimistic and cheerful.
+      </p>
+
+      <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
+    </div>
+
+    <div class="about" *ngIf="quantity == 6">
+      <h1>Details</h1>
+      <div class="side-by-side">
+        <p>
+          Primary - {{primary}} (3 x <sup>₱</sup>{{primary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{primary_price * 3| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p>
+          Secondary - {{secondary}} (3 x <sup>₱</sup>{{secondary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{secondary_price * 3| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p class="others">Others:</p>
+        <p class="others"><sup>₱</sup>350.00</p>
+      </div>
+      <hr />
+      <div class="side-by-side">
+        <p><b>Total</b></p>
+        <p>
+          <b><sup>₱</sup>{{total| number:'1.2'}}</b>
+        </p>
+      </div>
+      <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
+    </div>
+
+    <div class="about" *ngIf="quantity == 9">
+      <h1>Details</h1>
+      <div class="side-by-side">
+        <p>
+          Primary - {{primary}} (3 x <sup>₱</sup>{{primary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{primary_price * 3| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p>
+          Secondary - {{secondary}} (6 x <sup>₱</sup>{{secondary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{secondary_price * 6| number:'1.2'}}</p>
+      </div>
+
+      <div class="side-by-side">
+        <p class="others">Others:</p>
+        <p class="others"><sup>₱</sup>350.00</p>
+      </div>
+      <hr />
+      <div class="side-by-side">
+        <p><b>Total</b></p>
+        <p>
+          <b><sup>₱</sup>{{total| number:'1.2'}}</b>
+        </p>
+      </div>
+
+      <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
+    </div>
+
+    <div class="about" *ngIf="quantity == 12">
+      <h1>Details</h1>
+      <div class="side-by-side">
+        <p>
+          Primary - {{primary}} (4 x <sup>₱</sup>{{primary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{primary_price * 4| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p>
+          Secondary - {{secondary}} (4 x <sup>₱</sup>{{secondary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{secondary_price * 4| number:'1.2'}}</p>
+      </div>
+      <div class="side-by-side">
+        <p>
+          Tertiary - {{tertiary}} (4 x <sup>₱</sup>{{tertiary_price|
+          number:'1.2'}})
+        </p>
+        <p><sup>₱</sup>{{tertiary_price * 4| number:'1.2'}}</p>
+      </div>
+
+      <div class="side-by-side">
+        <p class="others">Others:</p>
+        <p class="others"><sup>₱</sup>350.00</p>
+      </div>
+      <hr />
+      <div class="side-by-side">
+        <p><b>Total</b></p>
+        <p>
+          <b><sup>₱</sup>{{total| number:'1.2'}}</b>
+        </p>
+      </div>
+
+      <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
+    </div>
+  </div>
+</ion-content>
