@@ -11,6 +11,7 @@ import { FlowersService } from 'src/app/services/flower.service';
 })
 export class ConfirmcartPage implements OnInit {
   flowername: any;
+  obj_flowers: any;
   primary: any;
   secondary: any;
   tertiary: any;
@@ -31,6 +32,9 @@ export class ConfirmcartPage implements OnInit {
   secondary_price: any;
   tertiary_price: any;
   primary_price: any;
+  quick_price: any;
+
+  details: any;
 
   show = false;
   constructor(
@@ -83,6 +87,29 @@ export class ConfirmcartPage implements OnInit {
         this.orders.order_flower +
         '.jpg';
       console.log('not automator');
+
+      this.dataService
+        .processData(btoa('get_bouquets').replace('=', ''), null, 2)
+        .subscribe(
+          (dt: any) => {
+            let load = this.dataService.decrypt(dt.a);
+            // console.log(load);
+            this.obj_flowers = load.payload.data;
+            console.log(this.obj_flowers);
+
+            this.obj_flowers.forEach((element) => {
+              console.log(element);
+
+              if (this.orders.order_flower == element.quick_name) {
+                this.quick_price = element.quick_price;
+                this.details = element.quick_details;
+              }
+            });
+          },
+          (er) => {
+            console.log('Invalid Inputs', er);
+          }
+        );
     }
   }
 

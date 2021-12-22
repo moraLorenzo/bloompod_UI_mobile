@@ -87,16 +87,18 @@
     <div class="card-content">
       <div class="card-title">
         <h1 class="ion-no-margin">{{order_flower | titlecase}}</h1>
-        <p clas="ion-no-margin"><sup>₱</sup>{{total | number:'1.2-2'}}</p>
+        <p clas="ion-no-margin" *ngIf="!show">
+          <sup>₱</sup>{{total | number:'1.2-2'}}
+        </p>
+        <p clas="ion-no-margin" *ngIf="show">
+          <sup>₱</sup>{{quick_price | number:'1.2-2'}}
+        </p>
       </div>
     </div>
 
     <div class="about" *ngIf="show">
       <h1>Details</h1>
-      <p>
-        An Artistic Bouquet Containing Assorted Flowers, which represents of
-        being optimistic and cheerful.
-      </p>
+      <p>{{details}}</p>
 
       <ion-button expand="block" (click)="mode()"> Checkout </ion-button>
     </div>
