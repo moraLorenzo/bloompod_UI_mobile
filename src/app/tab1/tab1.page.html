@@ -1,24 +1,38 @@
-<div class="center">
-  <ion-card
-    class="ion-activatable ripple-parent"
-    style="background: #00c4cc; color: white"
-    (click)="about()"
-  >
-    <div class="right">
-      <ion-icon style="font-size: 30px" name="help-circle"></ion-icon>
-    </div>
-    <ion-card-header style="color: #08595e">
-      <ion-card-subtitle style="color: #08595e">{{greet}},</ion-card-subtitle>
-      <ion-card-title style="color: #08595e">{{username}}</ion-card-title>
-      <!-- <small>{{address}}</small> -->
-    </ion-card-header>
-
-    <ion-ripple-effect></ion-ripple-effect>
-  </ion-card>
-</div>
+<!-- 
 
 <ion-content>
-  <!-- <div class="outer">
+  <div class="head">
+    <img src="../../assets/icon/D&B Logo.jpg" alt="" />
+  </div>
+
+  <div class="header">
+    <h1>FLORIST CHOICE</h1>
+  </div>
+
+
+
+  <div class="container">
+    <div style="text-align: center; margin: 0; padding: 0">
+      <ng-image-slider
+        #nav
+        style="cursor: pointer"
+        [images]="orders"
+        [infinite]="true"
+        [autoSlide]="3"
+        slideImage=".5"
+        [animationSpeed]="2"
+        [manageImageRatio]="true"
+        [imagePopup]="false"
+        (imageClick)="bouquet_click($event)"
+      ></ng-image-slider>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>CREATE YOUR OWN DESIGN</h1>
+  </div>
+
+  <div class="outer">
     <div class="middle">
       <div class="inner">
         <ion-grid>
@@ -26,6 +40,39 @@
             <ion-card color="primary" class="card1">
               <ion-card-header>
                 <img
+                  class="lower-opacity"
+                  src="../../assets/icon/detailsnblooms.png"
+                  style="width: 60%; position: absolute; margin-left: 50%"
+                />
+                <ion-card-subtitle>DETAILS & BLOOMS</ion-card-subtitle>
+                <ion-card-title>Automator</ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                Experience modern way of creating your own bouquet. Assisted by
+                our AI (Artificial Intelligence), just choose your main flower
+                component and we'll suggest what goes along with it depending on
+                your bouquet quantity selection.
+              </ion-card-content>
+            </ion-card>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>ABOUT US</h1>
+  </div>
+
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <ion-grid>
+          <ion-row>
+            <ion-card color="primary" class="card1">
+              <ion-card-header>
+                <img
+                  class="lower-opacity"
                   src="../../assets/icon/detailsnblooms.png"
                   style="width: 60%; position: absolute; margin-left: 50%"
                 />
@@ -43,6 +90,7 @@
             <ion-card color="primary" class="card1">
               <ion-card-header>
                 <img
+                  class="lower-opacity"
                   src="../../assets/icon/detailsnblooms.png"
                   style="width: 60%; position: absolute; margin-left: 50%"
                 />
@@ -60,58 +108,109 @@
         </ion-grid>
       </div>
     </div>
-  </div> -->
-
-  <div class="mt-2 mb-2" style="position: relative">
-    <div
-      style="
-        color: rgb(2, 34, 12);
-        background-color: none;
-        text-align: center;
-
-        text-align: justify;
-      "
-    >
-      <h3 class="mb-5" id="line-style" style="text-align: center">
-        <span>Available Flowers</span>
-      </h3>
-      <div style="text-align: center; margin: 0; padding: 0">
-        <ng-image-slider
-          #nav
-          [images]="order_flowers"
-          [infinite]="true"
-          [autoSlide]="3"
-          slideImage=".5"
-        ></ng-image-slider>
-      </div>
-    </div>
   </div>
 
-  <div
-    class="mt-2 mb-2"
-    style="
-      color: rgb(2, 34, 12);
-      background-color: none;
-      text-align: center;
-      text-align: justify;
-    "
+  
+</ion-content> -->
+
+<ion-content>
+  <div class="head">
+    <img src="../../assets/icon/D&B Logo.jpg" alt="" />
+  </div>
+
+  <h4 class="title-h4">Available Today</h4>
+
+  <p-carousel
+    [value]="products"
+    styleClass="custom-carousel"
+    [numVisible]="3"
+    [numScroll]="1"
+    [circular]="true"
+    [autoplayInterval]="2000"
+    [responsiveOptions]="responsiveOptions"
   >
-    <h3 class="mb-5" id="line-style" style="text-align: center">
-      <span>Florists Choice</span>
-    </h3>
-    <div style="text-align: center; margin: 0; padding: 0">
-      <ng-image-slider
-        #nav
-        style="cursor: pointer"
-        [images]="orders"
-        [infinite]="true"
-        [autoSlide]="3"
-        slideImage=".5"
-        [animationSpeed]="2"
-        [manageImageRatio]="true"
-        [imagePopup]="false"
-        (imageClick)="bouquet_click($event)"
-      ></ng-image-slider>
-    </div>
+    <ng-template let-product pTemplate="item">
+      <div class="product-item">
+        <div class="product-item-content">
+          <div class="p-mb-3"></div>
+          <img
+            _ngcontent-keu-c52=""
+            class="product-image"
+            src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{product.quick_name}}.jpg"
+            alt="Bamboo Watch"
+          />
+          <div>
+            <h4 class="p-mb-1">{{product.quick_name }}</h4>
+            <h6 class="p-mt-0 p-mb-3">
+              ₱{{ product.quick_price | number:'1.2'}}
+            </h6>
+          </div>
+
+          <div class="button-below">
+            <button type="button">
+              <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+
+  <h4 class="title-h4">Automate Your Bouquet</h4>
+
+  <div class="automator-banner">
+    <ion-card
+      color="primary"
+      class="card1 ion-activatable ripple-parent"
+      style="height: 15rem"
+    >
+      <ion-card-header>
+        <ion-card-subtitle></ion-card-subtitle>
+        <ion-card-title
+          style="margin: auto; text-align: center; font-size: 1.8rem"
+          >Automator (Custom)</ion-card-title
+        >
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-card-subtitle
+          >We Provide an Automator to make our customers have the power to
+          customize their own Bouquets. With the assistance of Artificial
+          Intelligence (AI), We can assist customers on choosing what goes well
+          with the flower they selected.</ion-card-subtitle
+        >
+      </ion-card-content>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
+  </div>
+  <br />
+
+  <h4 class="title-h4">About Us</h4>
+
+  <div class="automator-banner">
+    <ion-card
+      color="primary"
+      class="card1 ion-activatable ripple-parent"
+      style="height: 15rem"
+    >
+      <ion-card-header>
+        <ion-card-subtitle></ion-card-subtitle>
+        <ion-card-title
+          style="margin: auto; text-align: center; font-size: 1.8rem"
+          >Details & Blooms</ion-card-title
+        >
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-card-subtitle
+          >Details & Blooms Events and Flowers provides assistance to event
+          needs and cater to flower arrangements and styling requirements for
+          all occasions. Details & Blooms can be found within Harbor Point Mall
+          at the Ground Flr. (near the Activity Center), Subic Bay Freeport Zone
+          or contact us at <b>0915-424-0028</b>.</ion-card-subtitle
+        >
+      </ion-card-content>
+      <ion-ripple-effect></ion-ripple-effect>
+    </ion-card>
   </div>
 </ion-content>

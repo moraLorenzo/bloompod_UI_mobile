@@ -15,11 +15,15 @@ export class Tab4Page implements OnInit {
   address: string = 'Sample address';
   userId: any;
   orders: any;
+  cancelled: any;
   status: any;
+
+  selectedTabs = 'cart';
 
   user_obj: any;
 
   show = false;
+  show2 = false;
 
   constructor(
     private userService: UserService,
@@ -51,6 +55,7 @@ export class Tab4Page implements OnInit {
     // console.log("here");
 
     this.getOrders(this.userId);
+    this.getCancelled(this.userId);
   }
 
   ionViewDidEnter() {
@@ -150,6 +155,30 @@ export class Tab4Page implements OnInit {
         // console.log(load);
         // this.status = this.orders[0].order_status;
       });
+  }
+  // getCancelledStatus
+
+  getCancelled(id) {
+    this.orders = [];
+    let user_id = id;
+
+    this.dataService
+      .processData(btoa('getCancelledStatus').replace('=', ''), { user_id }, 2)
+      .subscribe((dt: any) => {
+        let load = this.dataService.decrypt(dt.a);
+        console.log(load);
+        try {
+          this.cancelled = load.payload.orders.reverse();
+          this.show2 = false;
+        } catch (err) {
+          // console.log(err);
+          this.show2 = true;
+        }
+      });
+  }
+
+  segmentChanged(event: any) {
+    console.log(event);
   }
 
   doRefresh(e: any) {

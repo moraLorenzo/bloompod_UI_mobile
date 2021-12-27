@@ -1,6 +1,12 @@
 ion-tab-bar {
-  --ion-background-color: #00c4cc;
+  // --ion-background-color: #00c4cc;
 
-  --color: white;
+  --color: #aaaaaa;
   font-family: "AppFont";
+  border-radius: 50px;
+  padding: 3px;
+}
+
+ion-tabs {
+  padding: 5px;
 }

@@ -1,4 +1,4 @@
-<div class="center">
+<!-- <div class="center">
   <ion-card
     class="ion-activatable ripple-parent"
     style="background: #00c4cc; color: white"
@@ -10,6 +10,13 @@
 
     <ion-ripple-effect></ion-ripple-effect>
   </ion-card>
+</div> -->
+
+<div id="wrapper">
+  <section>
+    <p>{{address}}</p>
+    <h2>{{username}}</h2>
+  </section>
 </div>
 
 <ion-content class="ion-padding">
@@ -56,75 +63,152 @@
   </div>
 
   <div style="margin-top: 28%; max-height: 75%; overflow-y: scroll">
-    <ion-item>
-      <ion-list-header>
-        <h3>Cart</h3>
-      </ion-list-header>
-    </ion-item>
-    <div *ngIf="show">
-      <ion-card
-        class="ion-activatable ripple-parent"
-        style="background: #c5b4e3; color: white"
-      >
-        <ion-card-header style="margin: auto; text-align: center">
-          <ion-card-subtitle
-            ><ion-icon
-              size="large"
-              name="help-outline"
-              style="color: white"
-            ></ion-icon
-          ></ion-card-subtitle>
-          <ion-card-title style="color: white">No Items in Cart</ion-card-title>
-        </ion-card-header>
+    <ion-segment [(ngModel)]="selectedTabs">
+      <ion-segment-button value="cart">
+        <ion-label>Cart</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="cancelled">
+        <ion-label>Cancelled</ion-label>
+      </ion-segment-button>
+    </ion-segment>
 
-        <ion-card-content>
-          Go to 'Shop' tab and choose an option (Customize/Florist Choice) then
-          determine floral details and choose add to cart.
-        </ion-card-content>
-      </ion-card>
-    </div>
-    <div *ngIf="!show">
-      <div *ngFor="let order of orders; index as i">
-        <ion-list
-          *ngIf="order.order_status == 'bookmark'"
-          style="padding-top: 0px; padding-bottom: 0px"
+    <div class="cart" *ngIf="selectedTabs == 'cart'">
+      <div *ngIf="show">
+        <ion-card
+          class="ion-activatable ripple-parent"
+          style="background: #c5b4e3; color: white"
         >
-          <ion-card
-            (click)="confirmcart(i, order)"
-            class="ion-activatable ripple-parent"
-            style="background: #c5b4e3; color: white"
-          >
-            <ion-item lines="none">
-              <ion-icon
-                name="flower-outline"
-                slot="start"
-                *ngIf="order.order_flower == 'Generated Flower Bouquet'"
+          <ion-card-header style="margin: auto; text-align: center">
+            <ion-card-subtitle
+              ><ion-icon
                 size="large"
-              ></ion-icon>
-              <ion-avatar
-                *ngIf="order.order_flower != 'Generated Flower Bouquet'"
-              >
-                <img
-                  src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{order.order_flower}}.jpg"
-                  alt=""
-              /></ion-avatar>
+                name="help-outline"
+                style="color: white"
+              ></ion-icon
+            ></ion-card-subtitle>
+            <ion-card-title style="color: white"
+              >No Items in Cart</ion-card-title
+            >
+          </ion-card-header>
 
-              <ion-label>
-                <ion-card-subtitle
-                  *ngIf="order.order_flower=='Generated Flower Bouquet'; else flowername"
-                  >{{order.order_flower}} {{i+1}}</ion-card-subtitle
+          <ion-card-content>
+            Go to 'Shop' tab and choose an option (Customize/Florist Choice)
+            then determine floral details and choose add to cart.
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <div *ngIf="!show">
+        <div *ngFor="let order of orders; index as i">
+          <ion-list
+            *ngIf="order.order_status == 'bookmark'"
+            style="padding-top: 0px; padding-bottom: 0px"
+          >
+            <ion-card
+              (click)="confirmcart(i, order)"
+              class="ion-activatable ripple-parent"
+              style="background: #c5b4e3; color: white"
+            >
+              <ion-item lines="none">
+                <ion-icon
+                  name="flower-outline"
+                  slot="start"
+                  *ngIf="order.order_flower == 'Generated Flower Bouquet'"
+                  size="large"
+                ></ion-icon>
+                <ion-avatar
+                  *ngIf="order.order_flower != 'Generated Flower Bouquet'"
                 >
-                <ng-template #flowername
-                  >{{order.order_flower | titlecase}}</ng-template
-                >
+                  <img
+                    src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{order.order_flower}}.jpg"
+                    alt=""
+                /></ion-avatar>
 
-                <ion-card-title
-                  >₱ {{order.order_totalprice | number:'1.2-2'}}</ion-card-title
-                ></ion-label
-              >
-            </ion-item>
-          </ion-card>
-        </ion-list>
+                <ion-label>
+                  <ion-card-subtitle
+                    *ngIf="order.order_flower=='Generated Flower Bouquet'; else flowername"
+                    >{{order.order_flower}} {{i+1}}</ion-card-subtitle
+                  >
+                  <ng-template #flowername
+                    >{{order.order_flower | titlecase}}</ng-template
+                  >
+
+                  <ion-card-title
+                    >₱ {{order.order_totalprice |
+                    number:'1.2-2'}}</ion-card-title
+                  ></ion-label
+                >
+              </ion-item>
+            </ion-card>
+          </ion-list>
+        </div>
+      </div>
+    </div>
+
+    <div class="cancelled" *ngIf="selectedTabs == 'cancelled'">
+      <div *ngIf="show2">
+        <ion-card
+          class="ion-activatable ripple-parent"
+          style="background: #c5b4e3; color: white"
+        >
+          <ion-card-header style="margin: auto; text-align: center">
+            <ion-card-subtitle
+              ><ion-icon
+                size="large"
+                name="help-outline"
+                style="color: white"
+              ></ion-icon
+            ></ion-card-subtitle>
+            <ion-card-title style="color: white"
+              >No Cancelled/Rejected Items</ion-card-title
+            >
+          </ion-card-header>
+
+          <ion-card-content>
+            Go to 'Shop' tab and choose an option (Customize/Florist Choice)
+            then determine floral details and choose add to cart.
+          </ion-card-content>
+        </ion-card>
+      </div>
+      <div *ngIf="!show2">
+        <div *ngFor="let order of cancelled; index as i">
+          <ion-list style="padding-top: 0px; padding-bottom: 0px">
+            <ion-card
+              class="ion-activatable ripple-parent"
+              style="background: #c5b4e3; color: white"
+            >
+              <ion-item lines="none">
+                <ion-icon
+                  name="flower-outline"
+                  slot="start"
+                  *ngIf="order.order_flower == 'Generated Flower Bouquet'"
+                  size="large"
+                ></ion-icon>
+                <ion-avatar
+                  *ngIf="order.order_flower != 'Generated Flower Bouquet'"
+                >
+                  <img
+                    src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{order.order_flower}}.jpg"
+                    alt=""
+                /></ion-avatar>
+
+                <ion-label>
+                  <ion-card-subtitle
+                    *ngIf="order.order_flower=='Generated Flower Bouquet'; else flowername"
+                    >{{order.order_flower}} {{i+1}}</ion-card-subtitle
+                  >
+                  <ng-template #flowername
+                    >{{order.order_flower | titlecase}}</ng-template
+                  >
+
+                  <ion-card-title
+                    >₱ {{order.order_totalprice |
+                    number:'1.2-2'}}</ion-card-title
+                  ></ion-label
+                >
+              </ion-item>
+            </ion-card>
+          </ion-list>
+        </div>
       </div>
     </div>
   </div>

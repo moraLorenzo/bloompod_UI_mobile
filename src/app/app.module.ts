@@ -16,6 +16,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NgImageSliderModule,
     BrowserAnimationsModule,
     NgOtpInputModule,
+    IvyCarouselModule,
     // ModalController
   ],
   providers: [
