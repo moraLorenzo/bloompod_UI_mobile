@@ -1,92 +1,51 @@
 <ion-content>
-  <!-- <div id="wrapper">
-    <section>
-      <p>To Determine Your Flower Arrangements</p>
-      <h2>PLEASE CHOOSE AN OPTION BELOW</h2>
-    </section>
-  </div>
+  <div class="area">
+    <ul class="circles">
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+      <li><div class="flower"></div></li>
+    </ul>
+    <div id="container">
+      <div class="box">
+        <h3 class="explorer" style="text-align: center">CHOOSE A MODE</h3>
 
-  <div class="outer" style="margin-top: 50%">
-    <div class="middle">
-      <div class="inner">
-        <ion-grid>
-          <ion-row>
-            <ion-card
-              color="primary"
-              class="card1 ion-activatable ripple-parent"
-              (click)="gotoQuick()"
-              style="height: 15rem"
-            >
-              <ion-card-header>
-                <ion-card-subtitle></ion-card-subtitle>
-                <ion-card-title
-                  style="margin: auto; text-align: center; font-size: 1.8rem"
-                  >Florist Choice (Preferred)</ion-card-title
-                >
-              </ion-card-header>
+        <div class="cards">
+          <article class="card triple-cards" (click)="gotoQuick()">
+            <a>
+              <div class="card-content">
+                <h2 class="card-title">Florist Choice (Preferred)</h2>
+                <p class="card-excerpt">
+                  Beautiful Flower Bouquets Designed by the Details & Blooms'
+                  Skilled Florist will Astound and Delight you
+                </p>
+              </div>
+            </a>
+          </article>
 
-              <ion-card-content>
-                <span
-                  >Beautiful Flower Bouquets Designed by the Details & Blooms'
-                  Skilled Florist will Astound and Delight you.</span
-                >
-              </ion-card-content>
-              <ion-ripple-effect></ion-ripple-effect>
-            </ion-card>
-          </ion-row>
-
-          <ion-row style="margin: auto; height: 50px">
-            <ion-card
-              color="primary"
-              class="card1 ion-activatable ripple-parent"
-              (click)="gotoCustom()"
-            >
-              <ion-card-header>
-                <ion-card-subtitle></ion-card-subtitle>
-                <ion-card-title
-                  style="margin: auto; text-align: center; font-size: 1.5rem"
-                  >Customize</ion-card-title
-                >
-              </ion-card-header>
-              <ion-card-content style="text-align: center">
-                <span>Make your Flower Bouquet Unique.</span>
-              </ion-card-content>
-
-              <ion-ripple-effect></ion-ripple-effect>
-            </ion-card>
-          </ion-row>
-        </ion-grid>
+          <article class="card triple-cards" (click)="gotoCustom()">
+            <a>
+              <div class="card-content">
+                <h2 class="card-title">Customize</h2>
+                <p class="card-excerpt">Make your Flower Bouquet Unique</p>
+              </div>
+            </a>
+          </article>
+        </div>
       </div>
     </div>
+  </div>
+  <!-- <div class="ripple-background">
+    <div class="circle xxlarge shade1"></div>
+    <div class="circle xlarge shade2"></div>
+    <div class="circle large shade3"></div>
+    <div class="circle mediun shade4"></div>
+    <div class="circle small shade5"></div>
   </div> -->
-
-  <div id="container">
-    <div class="box">
-      <!-- <h3 id="services">PLEASE CHOOSE AN OPTION BELOW</h3> -->
-      <h3 class="explorer" style="text-align: center">CHOOSE AN OPTION</h3>
-
-      <div class="cards">
-        <article class="card triple-cards" (click)="gotoQuick()">
-          <a>
-            <div class="card-content">
-              <h2 class="card-title">Florist Choice (Preferred)</h2>
-              <p class="card-excerpt">
-                Beautiful Flower Bouquets Designed by the Details & Blooms'
-                Skilled Florist will Astound and Delight you
-              </p>
-            </div>
-          </a>
-        </article>
-
-        <article class="card triple-cards" (click)="gotoCustom()">
-          <a>
-            <div class="card-content">
-              <h2 class="card-title">Customize</h2>
-              <p class="card-excerpt">Make your Flower Bouquet Unique</p>
-            </div>
-          </a>
-        </article>
-      </div>
-    </div>
-  </div>
 </ion-content>
