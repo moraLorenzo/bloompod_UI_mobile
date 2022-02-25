@@ -1,212 +1,157 @@
-<!-- 
-
 <ion-content>
-  <div class="head">
-    <img src="../../assets/icon/D&B Logo.jpg" alt="" />
-  </div>
-
-  <div class="header">
-    <h1>FLORIST CHOICE</h1>
-  </div>
-
-
-
-  <div class="container">
-    <div style="text-align: center; margin: 0; padding: 0">
-      <ng-image-slider
-        #nav
-        style="cursor: pointer"
-        [images]="orders"
-        [infinite]="true"
-        [autoSlide]="3"
-        slideImage=".5"
-        [animationSpeed]="2"
-        [manageImageRatio]="true"
-        [imagePopup]="false"
-        (imageClick)="bouquet_click($event)"
-      ></ng-image-slider>
+  <div class="top-header" id="header-top">
+    <div class="centered">
+      <h1 class="title">Provides assistance to event needs</h1>
+      <p class="sub-title">
+        Cater flower arrangements & styling requirements for all occasions
+      </p>
+      <button type="button" class="large-button" (click)="quick()">
+        Shop Now
+      </button>
     </div>
   </div>
 
-  <div class="header">
-    <h1>CREATE YOUR OWN DESIGN</h1>
-  </div>
+  <div class="showcase bg-white">
+    <h3 class="mb-5" id="line-style" style="text-align: center">
+      <span class="explorer bg-white">Explore Our Products</span>
+    </h3>
 
-  <div class="outer">
-    <div class="middle">
-      <div class="inner">
-        <ion-grid>
-          <ion-row>
-            <ion-card color="primary" class="card1">
-              <ion-card-header>
-                <img
-                  class="lower-opacity"
-                  src="../../assets/icon/detailsnblooms.png"
-                  style="width: 60%; position: absolute; margin-left: 50%"
-                />
-                <ion-card-subtitle>DETAILS & BLOOMS</ion-card-subtitle>
-                <ion-card-title>Automator</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                Experience modern way of creating your own bouquet. Assisted by
-                our AI (Artificial Intelligence), just choose your main flower
-                component and we'll suggest what goes along with it depending on
-                your bouquet quantity selection.
-              </ion-card-content>
-            </ion-card>
-          </ion-row>
-        </ion-grid>
-      </div>
-    </div>
-  </div>
+    <div class="row">
+      <div class="col-sm column-slider">
+        <div style="text-align: center; margin: 0; padding: 0">
+          <p-carousel
+            [value]="products"
+            styleClass="custom-carousel"
+            [numVisible]="3"
+            [numScroll]="1"
+            [circular]="true"
+            [autoplayInterval]="2000"
+            [responsiveOptions]="responsiveOptions"
+          >
+            <ng-template let-product pTemplate="item">
+              <div class="product-item">
+                <div class="product-item-content">
+                  <div class="p-mb-3"></div>
+                  <img
+                    _ngcontent-keu-c52=""
+                    class="product-image"
+                    src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{product.quick_name}}.jpg"
+                    alt="Bamboo Watch"
+                  />
+                  <div class="captions">
+                    <h4 class="p-mb-1">{{product.quick_name }}</h4>
+                    <h6 class="p-mt-0 p-mb-3">
+                      ₱{{ product.quick_price | number:'1.2'}}
+                    </h6>
+                  </div>
 
-  <div class="header">
-    <h1>ABOUT US</h1>
-  </div>
-
-  <div class="outer">
-    <div class="middle">
-      <div class="inner">
-        <ion-grid>
-          <ion-row>
-            <ion-card color="primary" class="card1">
-              <ion-card-header>
-                <img
-                  class="lower-opacity"
-                  src="../../assets/icon/detailsnblooms.png"
-                  style="width: 60%; position: absolute; margin-left: 50%"
-                />
-                <ion-card-subtitle>DETAILS & BLOOMS</ion-card-subtitle>
-                <ion-card-title>System Benefeciary</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                Details & Blooms Events and Flowers provides assistance to event
-                needs and cater to flower arrangements and styling requirements
-                for all occasions.
-              </ion-card-content>
-            </ion-card>
-          </ion-row>
-          <ion-row>
-            <ion-card color="primary" class="card1">
-              <ion-card-header>
-                <img
-                  class="lower-opacity"
-                  src="../../assets/icon/detailsnblooms.png"
-                  style="width: 60%; position: absolute; margin-left: 50%"
-                />
-                <ion-card-subtitle>DETAILS & BLOOMS</ion-card-subtitle>
-                <ion-card-title>Physical Store Details</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                Details & Blooms can be found within Harbor Point Mall at the
-                Ground Flr. (near the Activity Center), Subic Bay Freeport Zone
-                or contact us at
-                <b>0915-424-0028</b>.
-              </ion-card-content>
-            </ion-card>
-          </ion-row>
-        </ion-grid>
-      </div>
-    </div>
-  </div>
-
-  
-</ion-content> -->
-
-<ion-content>
-  <div class="head">
-    <img src="../../assets/icon/D&B Logo.jpg" alt="" />
-  </div>
-
-  <h4 class="title-h4">Available Today</h4>
-
-  <p-carousel
-    [value]="products"
-    styleClass="custom-carousel"
-    [numVisible]="3"
-    [numScroll]="1"
-    [circular]="true"
-    [autoplayInterval]="2000"
-    [responsiveOptions]="responsiveOptions"
-  >
-    <ng-template let-product pTemplate="item">
-      <div class="product-item">
-        <div class="product-item-content">
-          <div class="p-mb-3"></div>
-          <img
-            _ngcontent-keu-c52=""
-            class="product-image"
-            src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{product.quick_name}}.jpg"
-            alt="Bamboo Watch"
-          />
-          <div>
-            <h4 class="p-mb-1">{{product.quick_name }}</h4>
-            <h6 class="p-mt-0 p-mb-3">
-              ₱{{ product.quick_price | number:'1.2'}}
-            </h6>
-          </div>
-
-          <div class="button-below">
-            <button type="button">
-              <ion-icon slot="icon-only" name="checkmark-outline"></ion-icon>
-            </button>
-          </div>
+                  <div class="button-below">
+                    <button type="button">
+                      <ion-icon
+                        slot="icon-only"
+                        name="checkmark-outline"
+                      ></ion-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-carousel>
         </div>
       </div>
-    </ng-template>
-  </p-carousel>
-
-  <h4 class="title-h4">Automate Your Bouquet</h4>
-
-  <div class="automator-banner">
-    <ion-card
-      color="primary"
-      class="card1 ion-activatable ripple-parent"
-      style="height: 15rem"
-    >
-      <ion-card-header>
-        <ion-card-subtitle></ion-card-subtitle>
-        <ion-card-title
-          style="margin: auto; text-align: center; font-size: 1.8rem"
-          >Automator (Custom)</ion-card-title
-        >
-      </ion-card-header>
-
-      <ion-card-content>
-        <ion-card-subtitle
-          >We Provide an Automator to make our customers have the power to
-          customize their own Bouquets. With the assistance of Artificial
-          Intelligence (AI), We can assist customers on choosing what goes well
-          with the flower they selected.</ion-card-subtitle
-        >
-      </ion-card-content>
-      <ion-ripple-effect></ion-ripple-effect>
-    </ion-card>
+      <!-- <div class="col-sm column-slider">
+        <div style="text-align: center; margin: 0; padding: 0">
+          <p-carousel
+            [value]="flowers"
+            styleClass="custom-carousel"
+            [numVisible]="3"
+            [numScroll]="1"
+            [circular]="true"
+            [autoplayInterval]="2000"
+          >
+            <ng-template let-product pTemplate="item">
+              <div class="product-item">
+                <div class="product-item-content">
+                  <div class="p-mb-3"></div>
+                  <img
+                    _ngcontent-keu-c52=""
+                    class="product-image"
+                    src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/flowers/{{
+                      product.flower_name
+                    }}.png"
+                    alt="{{ product.flower_name }}"
+                  />
+                  <div>
+                    <h3 class="p-mb-1 text-left text-left pt-3">
+                      {{ product.flower_name }}
+                    </h3>
+                    <h4 class="p-mt-0 p-mb-3 text-left">
+                      ₱{{ product.flower_price | number: "1.2" }}
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-carousel>
+        </div>
+      </div> -->
+    </div>
   </div>
-  <br />
 
-  <h4 class="title-h4">About Us</h4>
+  <div id="container">
+    <div class="box">
+      <h3 id="services">Services</h3>
+      <h3 class="explorer" style="text-align: center">
+        Details & Blooms Events and Flowers
+      </h3>
 
-  <div class="automator-banner">
-    <ion-card color="primary" class="card1 ion-activatable ripple-parent">
-      <ion-card-header>
-        <ion-card-subtitle></ion-card-subtitle>
-        <ion-card-title
-          style="margin: auto; text-align: center; font-size: 1.8rem"
-          >Details & Blooms</ion-card-title
-        >
-      </ion-card-header>
+      <div class="cards">
+        <article class="card triple-cards">
+          <a href="#/nav/quick">
+            <figure class="card-thumb">
+              <img src="../../../assets/icon/paintbrush.svg" alt="paint" />
+            </figure>
+            <div class="card-content">
+              <h2 class="card-title">Flowers and Styling/Coordination</h2>
+              <p class="card-excerpt">
+                Cater to flower arrangements styling requirements for all
+                occasions.
+              </p>
+            </div>
+          </a>
+        </article>
 
-      <ion-card-content>
-        <ion-card-subtitle
-          >Details & Blooms Events and Flowers provides assistance to event
-          needs and cater to flower arrangements and styling requirements for
-          all occasions. Details & Blooms can be found within Harbor Point Mall
-          at the Ground Flr. (near the Activity Center), Subic Bay Freeport Zone
-          or contact us at <b>0915-424-0028</b>.</ion-card-subtitle
-        >
-      </ion-card-content>
-      <ion-ripple-effect></ion-ripple-effect>
-    </ion-card>
+        <article class="card triple-cards">
+          <a href="#/nav/quick">
+            <figure class="card-thumb">
+              <img src="../../../assets/icon/idea.svg" alt="idea" />
+            </figure>
+            <div class="card-content">
+              <h2 class="card-title">
+                A perfect theme stage styling only for You
+              </h2>
+              <p class="card-excerpt">
+                Choose the best flowers and styling theme that will suit your
+                budget and needs.
+              </p>
+            </div>
+          </a>
+        </article>
+        <article class="card triple-cards">
+          <a href="#/nav/custom">
+            <figure class="card-thumb">
+              <img src="../../../assets/icon/robot.svg" alt="robot" />
+            </figure>
+            <div class="card-content">
+              <h2 class="card-title">Exciting new features.</h2>
+              <p class="card-excerpt">
+                Discover bouquet arrangements never seen before with the help of
+                our Artificial Intelligence(AI).
+              </p>
+            </div>
+          </a>
+        </article>
+      </div>
+    </div>
   </div>
 </ion-content>

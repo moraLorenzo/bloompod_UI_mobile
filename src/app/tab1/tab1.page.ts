@@ -271,14 +271,14 @@ export class Tab1Page implements OnInit {
 
   // }
 
-  // public async about() {
-  //   const popover = await this.popoverController.create({
-  //     component: AboutPage,
-  //     cssClass: 'my-custom-class2',
-  //     translucent: true,
-  //   });
-  //   await popover.present();
+  public async about() {
+    const popover = await this.popoverController.create({
+      component: AboutPage,
+      cssClass: 'my-custom-class2',
+      translucent: true,
+    });
+    await popover.present();
 
-  //   const data = await popover.onWillDismiss();
-  // }
+    const data = await popover.onWillDismiss();
+  }
 }

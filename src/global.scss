@@ -32,6 +32,10 @@
   font-family: "Inter-Semi"; //This is what we are going to call
   src: url("../src/assets/fonts/Inter-SemiBold.ttf");
 }
+@font-face {
+  src: local("bebas"), url(./assets/fonts/bebas.ttf) format("truetype");
+  font-family: "bebas";
+}
 
 .my-custom-class {
   --background: #00c4cc;

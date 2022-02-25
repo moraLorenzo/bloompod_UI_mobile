@@ -116,6 +116,7 @@ export class GeneratePage implements OnInit {
       }
       this.topFlowers = this.fs.nine(this.primary, this.floral[this.cpt]);
       this.content = this.topFlowers;
+      console.log(this.floral);
 
       this.floral.forEach((element) => {
         // console.log(element);
