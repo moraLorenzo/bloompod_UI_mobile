@@ -1,19 +1,22 @@
-<div id="wrapper">
-  <section>
-    <ion-card-header style="margin: 0; padding: 0">
-      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
-    </ion-card-header>
-    <h2>Please Fill Floral Details</h2>
-  </section>
-</div>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="back()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+
+  <ion-title
+    style="padding: 0; text-align: center; font-family: 'bebas'; font-size: 6vh"
+    >Bouquets</ion-title
+  >
+</ion-toolbar>
 
 <ion-content>
-  <div class="header">
-    <h1>BOUQUETS</h1>
-  </div>
-
-  <!-- <ion-searchbar></ion-searchbar> -->
-
   <div class="container">
     <select
       id="selectInput"
