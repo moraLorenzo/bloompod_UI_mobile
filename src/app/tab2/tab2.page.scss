@@ -392,8 +392,8 @@ ion-content {
   animation-delay: 2s;
   animation-duration: 12s;
   .flower {
-    width: 80px;
-    height: 25px;
+    width: 180px;
+    height: 55px;
     background-color: #00c4cc;
     border-radius: 50px;
   }
@@ -401,8 +401,8 @@ ion-content {
     content: "";
     display: block;
     position: absolute;
-    width: 80px;
-    height: 25px;
+    width: 180px;
+    height: 55px;
     background: #00c4cc;
     border-radius: 50px;
     transform: rotate(60deg);
@@ -410,8 +410,8 @@ ion-content {
   .flower::after {
     content: "";
     display: block;
-    width: 80px;
-    height: 25px;
+    width: 180px;
+    height: 55px;
     background: #00c4cc;
     border-radius: 50px;
     transform: rotate(-60deg);
@@ -424,8 +424,8 @@ ion-content {
   // height: 20px;
   animation-delay: 4s;
   .flower {
-    width: 80px;
-    height: 25px;
+    width: 120px;
+    height: 40px;
     background-color: #00c4cc;
     border-radius: 50px;
   }
@@ -433,8 +433,8 @@ ion-content {
     content: "";
     display: block;
     position: absolute;
-    width: 80px;
-    height: 25px;
+    width: 120px;
+    height: 40px;
     background: #00c4cc;
     border-radius: 50px;
     transform: rotate(60deg);
@@ -442,8 +442,8 @@ ion-content {
   .flower::after {
     content: "";
     display: block;
-    width: 80px;
-    height: 25px;
+    width: 120px;
+    height: 40px;
     background: #00c4cc;
     border-radius: 50px;
     transform: rotate(-60deg);
@@ -457,8 +457,8 @@ ion-content {
   animation-delay: 0s;
   animation-duration: 18s;
   .flower {
-    width: 80px;
-    height: 25px;
+    width: 140px;
+    height: 50px;
     background-color: #00c4cc;
     border-radius: 50px;
   }
@@ -466,8 +466,8 @@ ion-content {
     content: "";
     display: block;
     position: absolute;
-    width: 80px;
-    height: 25px;
+    width: 140px;
+    height: 50px;
     background: #00c4cc;
     border-radius: 50px;
     transform: rotate(60deg);
@@ -475,8 +475,8 @@ ion-content {
   .flower::after {
     content: "";
     display: block;
-    width: 80px;
-    height: 25px;
+    width: 140px;
+    height: 50px;
     background: #00c4cc;
     border-radius: 50px;
     transform: rotate(-60deg);
@@ -489,8 +489,8 @@ ion-content {
   // height: 20px;
   animation-delay: 0s;
   .flower {
-    width: 80px;
-    height: 25px;
+    width: 40px;
+    height: 5px;
     background-color: #00c4cc;
     border-radius: 50px;
   }
@@ -498,8 +498,7 @@ ion-content {
     content: "";
     display: block;
     position: absolute;
-    width: 80px;
-    height: 25px;
+    width: 40px;
     background: #00c4cc;
     border-radius: 50px;
     transform: rotate(60deg);
@@ -507,8 +506,7 @@ ion-content {
   .flower::after {
     content: "";
     display: block;
-    width: 80px;
-    height: 25px;
+    height: 5px;
     background: #00c4cc;
     border-radius: 50px;
     transform: rotate(-60deg);

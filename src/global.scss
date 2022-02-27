@@ -38,18 +38,15 @@
 }
 
 .my-custom-class {
-  --background: #00c4cc;
   font-family: "AppFont";
   font-size: 5vw;
-  color: white !important;
+
   p {
     text-align: center;
   }
   button.alert-button {
-    color: white;
   }
   message {
-    color: white;
   }
 }
 
@@ -60,38 +57,35 @@
 }
 
 .my-custom-class {
-  --background: #00c4cc;
   font-family: "AppFont";
   font-size: 5vw;
-  color: white !important;
+
   p {
     text-align: center;
   }
   button.alert-button {
-    color: white;
   }
   .alert-wrapper {
     .alert-head {
       // header styling here eg. background
-      color: white;
+
       h2 {
-        color: white; // header text styling here eg. color, font size
+        // header text styling here eg. color, font size
       }
     }
     .alert-message {
-      color: white;
     }
   }
 }
 
 .my-custom-class-login {
-  background-color: #44dcb6;
-  --background: #00c4cc;
+  // background-color: #44dcb6;
+  // --background: #00c4cc;
 
-  color: white;
+  // color: white;
   font-family: "AppFont";
   font-size: 5vw;
-  color: white;
+  // color: white;
   p {
     text-align: center;
   }

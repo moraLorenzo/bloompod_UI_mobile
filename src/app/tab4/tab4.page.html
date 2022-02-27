@@ -1,215 +1,195 @@
-<ion-toolbar>
-  <ion-buttons slot="end">
-    <ion-button (click)="logout()">
-      <ion-icon name="log-out"></ion-icon>
-    </ion-button>
-  </ion-buttons>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
 
-  <ion-title style="font-family: 'bebas'; font-size: 6vh"
-    >{{username}}</ion-title
-  >
-</ion-toolbar>
-<p style="padding-left: 20px">{{address}}</p>
-
-<ion-content class="ion-padding">
-  <div class="area">
-    <ul class="circles">
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-      <li><div class="flower"></div></li>
-    </ul>
-    <ion-refresher
-      slot="fixed"
-      pullFactor="0.5"
-      id="refresher"
-      (ionRefresh)="doRefresh($event)"
+    <ion-title style="font-family: 'bebas'; font-size: 6vh"
+      >{{username}}</ion-title
     >
-      <ion-refresher-content></ion-refresher-content>
-    </ion-refresher>
+  </ion-toolbar>
+  <p style="padding-left: 20px; font-family: 'bebas'">{{address}}</p>
 
-    <div
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+      margin-bottom: 0;
+    "
+  >
+    <br />
+
+    <ion-fab
       style="
-        display: flex;
-        justify-content: center;
-        margin-top: 5%;
-        margin-bottom: 5%;
+        left: 50px;
+        font-family: 'bebas';
+        font-size: 3vh;
+        text-align: center;
       "
     >
-      <ion-fab style="left: 50px">
-        <ion-fab-button (click)="toPay()" class="bg">
-          <ion-icon name="checkmark-outline"></ion-icon> </ion-fab-button
-        >To Pay
-      </ion-fab>
+      <ion-fab-button (click)="toPay()" class="bg">
+        <ion-icon name="checkmark-outline"></ion-icon> </ion-fab-button
+      >To Pay
+    </ion-fab>
 
-      <ion-fab>
-        <ion-fab-button (click)="service()" class="bg">
-          <ion-icon name="rose-outline"></ion-icon> </ion-fab-button
-        >Service
-      </ion-fab>
+    <ion-fab style="font-family: 'bebas'; font-size: 3vh; text-align: center">
+      <ion-fab-button (click)="service()" class="bg">
+        <ion-icon name="rose-outline"></ion-icon> </ion-fab-button
+      >Service
+    </ion-fab>
 
-      <ion-fab style="right: 30px; text-align: center">
-        <ion-fab-button (click)="completed()" class="bg">
-          <ion-icon name="bag-check-outline"></ion-icon> </ion-fab-button
-        >Completed
-      </ion-fab>
-    </div>
+    <ion-fab
+      style="
+        right: 30px;
 
-    <div style="margin-top: 28%; max-height: 75%; overflow-y: scroll">
-      <ion-segment [(ngModel)]="selectedTabs">
-        <ion-segment-button value="cart">
-          <ion-label>Cart</ion-label>
-        </ion-segment-button>
-        <ion-segment-button value="cancelled">
-          <ion-label>Cancelled</ion-label>
-        </ion-segment-button>
-      </ion-segment>
+        font-family: 'bebas';
+        font-size: 3vh;
+        text-align: center;
+      "
+    >
+      <ion-fab-button (click)="completed()" class="bg">
+        <ion-icon name="bag-check-outline"></ion-icon> </ion-fab-button
+      >Completed
+    </ion-fab>
 
-      <div class="cart" *ngIf="selectedTabs == 'cart'">
+    <ion-segment
+      value="Chapters"
+      mode="md"
+      (ionChange)="segmentChanged($event)"
+    >
+      <ion-segment-button value="cart"
+        ><ion-label>Cart</ion-label></ion-segment-button
+      >
+      <ion-segment-button value="cancelled"
+        ><ion-label>Cancelled</ion-label></ion-segment-button
+      >
+    </ion-segment>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher
+    slot="fixed"
+    pullFactor="0.5"
+    id="refresher"
+    (ionRefresh)="doRefresh($event)"
+  >
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="segmenting">
+    <div class="main_content_div">
+      <span *ngIf="selectedTabs == 'cart'">
         <div *ngIf="show">
-          <ion-card
-            class="ion-activatable ripple-parent"
-            style="background: #c5b4e3; color: white"
-          >
-            <ion-card-header style="margin: auto; text-align: center">
-              <ion-card-subtitle
-                ><ion-icon
-                  size="large"
-                  name="help-outline"
-                  style="color: white"
-                ></ion-icon
-              ></ion-card-subtitle>
-              <ion-card-title style="color: white"
-                >No Items in Cart</ion-card-title
-              >
-            </ion-card-header>
+          <div class="card_div">
+            <div
+              class="round_image bg_image"
+              [style.backgroundImage]="'url('+order.order_flower+')'"
+            ></div>
 
-            <ion-card-content>
-              Go to 'Shop' tab and choose an option (Customize/Florist Choice)
-              then determine floral details and choose add to cart.
-            </ion-card-content>
-          </ion-card>
+            <div class="content_div">
+              <ion-label class="title_lbl">No Items in Cart</ion-label>
+
+              <ion-label class="small_lbl">
+                Go to 'Shop' tab and choose an option (Customize/Florist Choice)
+                then determine floral details and choose add to cart.</ion-label
+              >
+            </div>
+          </div>
         </div>
         <div *ngIf="!show">
-          <div *ngFor="let order of orders; index as i">
-            <ion-list
-              *ngIf="order.order_status == 'bookmark'"
-              style="padding-top: 0px; padding-bottom: 0px"
-            >
-              <ion-card
-                (click)="confirmcart(i, order)"
-                class="ion-activatable ripple-parent"
-                style="background: #c5b4e3; color: white"
+          <div class="card_div" *ngFor="let order of orders; index as i">
+            <div class="round_image bg_image">
+              <img
+                *ngIf="order.order_flower != 'Generated Flower Bouquet'"
+                src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{order.order_flower}}.jpg"
+                alt=""
+              />
+
+              <ion-icon
+                name="flower-outline"
+                slot="start"
+                *ngIf="order.order_flower == 'Generated Flower Bouquet'"
+                size="large"
+              ></ion-icon>
+            </div>
+
+            <div class="content_div" (click)="confirmcart(i, order)">
+              <ion-label
+                class="title_lbl"
+                *ngIf="order.order_flower=='Generated Flower Bouquet'; else flowername"
+                >{{order.order_flower}} {{i+1}}</ion-label
               >
-                <ion-item lines="none">
-                  <ion-icon
-                    name="flower-outline"
-                    slot="start"
-                    *ngIf="order.order_flower == 'Generated Flower Bouquet'"
-                    size="large"
-                  ></ion-icon>
-                  <ion-avatar
-                    *ngIf="order.order_flower != 'Generated Flower Bouquet'"
-                  >
-                    <img
-                      src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{order.order_flower}}.jpg"
-                      alt=""
-                  /></ion-avatar>
-
-                  <ion-label>
-                    <ion-card-subtitle
-                      *ngIf="order.order_flower=='Generated Flower Bouquet'; else flowername"
-                      >{{order.order_flower}} {{i+1}}</ion-card-subtitle
-                    >
-                    <ng-template #flowername
-                      >{{order.order_flower | titlecase}}</ng-template
-                    >
-
-                    <ion-card-title
-                      >₱ {{order.order_totalprice |
-                      number:'1.2-2'}}</ion-card-title
-                    ></ion-label
-                  >
-                </ion-item>
-              </ion-card>
-            </ion-list>
+              <ng-template #flowername>
+                <ion-label class="title_lbl"
+                  >{{order.order_flower | titlecase}}</ion-label
+                ></ng-template
+              >
+              <ion-label class="small_lbl"
+                >₱ {{order.order_totalprice | number:'1.2-2'}}</ion-label
+              >
+            </div>
           </div>
         </div>
-      </div>
+      </span>
 
-      <div class="cancelled" *ngIf="selectedTabs == 'cancelled'">
+      <span *ngIf="selectedTabs == 'cancelled'">
         <div *ngIf="show2">
-          <ion-card
-            class="ion-activatable ripple-parent"
-            style="background: #c5b4e3; color: white"
-          >
-            <ion-card-header style="margin: auto; text-align: center">
-              <ion-card-subtitle
-                ><ion-icon
-                  size="large"
-                  name="help-outline"
-                  style="color: white"
-                ></ion-icon
-              ></ion-card-subtitle>
-              <ion-card-title style="color: white"
-                >No Cancelled/Rejected Items</ion-card-title
+          <div class="card_div">
+            <div
+              class="round_image bg_image"
+              [style.backgroundImage]="'url('+order.order_flower+')'"
+            ></div>
+
+            <div class="content_div">
+              <ion-label class="title_lbl">No Cancelled Items</ion-label>
+
+              <ion-label class="small_lbl">
+                Go to 'Shop' tab and choose an option (Customize/Florist Choice)
+                then determine floral details and choose add to cart.</ion-label
               >
-            </ion-card-header>
-
-            <ion-card-content>
-              Go to 'Shop' tab and choose an option (Customize/Florist Choice)
-              then determine floral details and choose add to cart.
-            </ion-card-content>
-          </ion-card>
-        </div>
-        <div *ngIf="!show2">
-          <div *ngFor="let order of cancelled; index as i">
-            <ion-list style="padding-top: 0px; padding-bottom: 0px">
-              <ion-card
-                class="ion-activatable ripple-parent"
-                style="background: #c5b4e3; color: white"
-              >
-                <ion-item lines="none">
-                  <ion-icon
-                    name="flower-outline"
-                    slot="start"
-                    *ngIf="order.order_flower == 'Generated Flower Bouquet'"
-                    size="large"
-                  ></ion-icon>
-                  <ion-avatar
-                    *ngIf="order.order_flower != 'Generated Flower Bouquet'"
-                  >
-                    <img
-                      src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{order.order_flower}}.jpg"
-                      alt=""
-                  /></ion-avatar>
-
-                  <ion-label>
-                    <ion-card-subtitle
-                      *ngIf="order.order_flower=='Generated Flower Bouquet'; else flowername"
-                      >{{order.order_flower}} {{i+1}}</ion-card-subtitle
-                    >
-                    <ng-template #flowername
-                      >{{order.order_flower | titlecase}}</ng-template
-                    >
-
-                    <ion-card-title
-                      >₱ {{order.order_totalprice |
-                      number:'1.2-2'}}</ion-card-title
-                    ></ion-label
-                  >
-                </ion-item>
-              </ion-card>
-            </ion-list>
+            </div>
           </div>
         </div>
-      </div>
+
+        <div *ngIf="!show2">
+          <div class="card_div" *ngFor="let order of cancelled; index as i">
+            <div class="round_image bg_image">
+              <img
+                *ngIf="order.order_flower != 'Generated Flower Bouquet'"
+                src="http://bloompod.api.gc-ecommerceapp.com/bloompod_api/quick/{{order.order_flower}}.jpg"
+                alt=""
+              />
+
+              <ion-icon
+                name="flower-outline"
+                slot="start"
+                *ngIf="order.order_flower == 'Generated Flower Bouquet'"
+                size="large"
+              ></ion-icon>
+            </div>
+
+            <div class="content_div">
+              <ion-label
+                class="title_lbl"
+                *ngIf="order.order_flower=='Generated Flower Bouquet'; else flowername"
+                >{{order.order_flower}} {{i+1}}</ion-label
+              >
+              <ng-template #flowername>
+                <ion-label class="title_lbl"
+                  >{{order.order_flower | titlecase}}</ion-label
+                ></ng-template
+              >
+              <ion-label class="small_lbl"
+                >₱ {{order.order_totalprice | number:'1.2-2'}}</ion-label
+              >
+            </div>
+          </div>
+        </div>
+      </span>
     </div>
   </div>
 </ion-content>

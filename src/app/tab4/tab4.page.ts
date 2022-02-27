@@ -178,7 +178,9 @@ export class Tab4Page implements OnInit {
   }
 
   segmentChanged(event: any) {
-    console.log(event);
+    // console.log(event);
+    console.log(event.detail.value);
+    this.selectedTabs = event.detail.value;
   }
 
   doRefresh(e: any) {
